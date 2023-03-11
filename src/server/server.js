@@ -1,6 +1,17 @@
 import express from 'express';
 const app = express();
-const PORT = 3000;
+const PORT = 1234;
+
+import  promRouter  from './routes/promRoutes.js';
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+
+app.use('/prom-data', promRouter);
+
+app.use((req, res, next) => {
+  res.status(404).send("404: not found")
+})
 
 //global err handler
 // app.use((err, req, res) => {
