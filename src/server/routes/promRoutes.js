@@ -7,7 +7,7 @@ import promController from '../controllers/promController.js';
 
 
 //routes
-promRouter.get('/', promController.getDefaultMetrics, (req, res) => {
+promRouter.get('/metrics', promController.getDefaultMetrics, (req, res) => {
     res.status(200).json(res.locals.getDefaultMetrics);
 })
 
